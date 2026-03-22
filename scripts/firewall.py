@@ -1,6 +1,7 @@
 import json
 import os
 import sys
+import re
 
 POLICY_FILE = "/path/to/openclaw/workspace/argent/intents/global_policy.json"
 
@@ -40,9 +41,25 @@ def evaluate_intent(tool_name, arguments_str):
     # 2. Communication / Message Tool
     if tool_name == "message" or tool_name == "sessions_send":
         message_text = args.get("message", "")
-        # Basic heuristic check for secrets (in a real system, use regex for keys/tokens)
-        if "api_key" in message_text.lower() or "password" in message_text.lower() or "token=" in message_text.lower():
+        lower_msg = message_text.lower()
+        
+        # Basic heuristic check for secrets
+        if "api_key" in lower_msg or "password" in lower_msg or "token=" in lower_msg:
             return False, "DENIED: Message appears to contain prohibited secrets or auth tokens."
+            
+        # Check for Discord IDs (17-19 digits)
+        if re.search(r'\b\d{17,19}\b', message_text):
+            return False, "DENIED: Message appears to contain a Discord User ID."
+            
+        # Check for Server/Internal IP addresses (192.168.x.x, 10.x.x.x, 172.16-31.x.x)
+        if re.search(r'\b(?:192\.168|10\.|172\.(?:1[6-9]|2[0-9]|3[0-1]))\.\d{1,3}\.\d{1,3}\b', message_text):
+            return False, "DENIED: Message appears to contain an internal Server IP Address."
+            
+        # Check for MAC Addresses (Windows: 00-11-22-33-44-55, Unix: 00:11:22:33:44:55, Cisco: 0011.2233.4455, Raw: 001122334455)
+        mac_pattern = r'\b(?:[0-9A-Fa-f]{2}[:-]){5}[0-9A-Fa-f]{2}\b|\b[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}\b'
+        if re.search(mac_pattern, message_text):
+            return False, "DENIED: Message appears to contain a MAC Address."
+            
         return False, f"PENDING: {tool_name} requires explicit user authorization before execution."
 
     # 3. Gateway Tool

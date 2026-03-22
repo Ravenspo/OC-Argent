@@ -43,7 +43,10 @@
         "Passwords",
         "Raw JSON configuration dumps",
         "SSH private keys",
-        "Auth tokens (Discord, Google Maps, Field Nation)"
+        "Auth tokens (Discord, Google Maps, Field Nation)",
+        "Discord User IDs",
+        "Server IP Addresses",
+        "MAC Addresses"
       ],
       "required_chat_formatting": [
         "Two spaces after a period",
