@@ -1,0 +1,56 @@
+{
+  "policies": {
+    "global": {
+      "auto_approve_tools": [
+        "read",
+        "memory_search",
+        "memory_get",
+        "web_search",
+        "web_fetch",
+        "session_status"
+      ],
+      "require_user_approval_tools": [
+        "message",
+        "sessions_send",
+        "gateway"
+      ],
+      "restricted_commands": [
+        "rm -rf",
+        "mkfs",
+        "chmod 777",
+        "chown -R",
+        "curl * | bash",
+        "wget * | bash",
+        "curl * | sh",
+        "wget * | sh"
+      ]
+    },
+    "file_system": {
+      "require_backup_before_edit": [
+        "openclaw.json",
+        "MEMORY.md",
+        "TODO.md",
+        "CHANGELOG.md",
+        "TOOLS.md",
+        "SOUL.md",
+        "USER.md",
+        "core.md"
+      ]
+    },
+    "communication": {
+      "prohibited_chat_content": [
+        "API keys",
+        "Passwords",
+        "Raw JSON configuration dumps",
+        "SSH private keys",
+        "Auth tokens (Discord, Google Maps, Field Nation)"
+      ],
+      "required_chat_formatting": [
+        "Two spaces after a period",
+        "Block paragraphs (no 1.5 line spacing)",
+        "No AI filler intros/outros"
+      ],
+      "enforced_subagent_silence": true
+    }
+  }
+}
