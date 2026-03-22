@@ -17,3 +17,7 @@ This repository provides a framework for power users who want the advanced archi
 3. Update `routing/model_router.py` with your specific local Ollama IP address and your preferred cloud models.
 4. Update `memory/core.md` with your system's core identity, rules of engagement, and prompt formatting requirements.
 5. In your main OpenClaw agent prompt, explicitly mandate that the agent must evaluate its intentions against the `firewall.py` script before executing any state-changing tools (like `exec`, `edit`, `write`, or `gateway`).
+
+## Acknowledgments & Inspiration
+
+This architecture is heavily inspired by the core concepts of [ArgentOS](https://argentos.ai/), an open-source AI operating system. We loved their approach to Hierarchical Adaptive Memory (HAM), Runtime Governance, and Dynamic Model Routing, and wanted to bring those exact paradigms natively into the OpenClaw environment. Full credit to the ArgentOS team for the blueprint.
