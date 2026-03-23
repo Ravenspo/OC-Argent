@@ -1,5 +1,9 @@
 # Changelog - OC-Argent
 
+## [v1.3.0] - 2026-03-23
+### Changed
+- **Automated Deployment:** Upgraded `install_oc_argent.sh` to an interactive installer. Users are now prompted for their specific Cloud Model, Local Ollama alias, Local Ollama IP, and preferred messaging channel (Slack/Discord/Telegram) during installation. The script automatically injects these values into the dynamic routing and alert scripts, eliminating the need for manual Python file edits post-installation.
+
 ## [v1.2.0] - 2026-03-23
 ### Added
 - **Automated Deployment:** Released `install_oc_argent.sh` (Version 1) for automated, non-destructive sandbox creation and memory migration for existing OpenClaw environments.

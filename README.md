@@ -29,7 +29,7 @@ If you prefer to deploy the architecture manually:
 
 1. Clone this repository into a dedicated folder inside your OpenClaw workspace (e.g., `~/.openclaw/workspace/argent/`).
 2. Update the `intents/global_policy.json` file with your specific file paths, protected files, and restricted shell commands.
-3. Update `routing/model_router.py` with your specific local Ollama IP address and your preferred cloud models.
+3. The installer script will interactively ask you for your preferred Cloud Model, Local Model, Ollama IP, and alert channel (Slack/Discord/Telegram) to automatically configure the dynamic router.
 4. Update `memory/core.md` with your system's core identity, rules of engagement, and prompt formatting requirements.
 5. In your main OpenClaw agent prompt, explicitly mandate that the agent must evaluate its intentions against the `firewall.py` script before executing any state-changing tools (like `exec`, `edit`, `write`, or `gateway`).
 
