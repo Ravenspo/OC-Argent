@@ -12,6 +12,21 @@ This repository provides a framework for power users who want the advanced archi
 
 ## Deployment & Setup
 
+### Automated Installation (Version 1)
+We have provided an automated bash script for existing OpenClaw users (v2026.3.8+). This script safely builds the directory structure, downloads the core assets, and non-destructively migrates your existing `MEMORY.md` into the new Hierarchical Adaptive Memory (HAM) tiers.
+
+```bash
+curl -sL https://raw.githubusercontent.com/Ravenspo/OC-Argent/main/install_oc_argent.sh | bash
+```
+
+If you need to revert to standard OpenClaw routing, a clean uninstaller is also included:
+```bash
+curl -sL https://raw.githubusercontent.com/Ravenspo/OC-Argent/main/uninstall_oc_argent.sh | bash
+```
+
+### Manual Installation
+If you prefer to deploy the architecture manually:
+
 1. Clone this repository into a dedicated folder inside your OpenClaw workspace (e.g., `~/.openclaw/workspace/argent/`).
 2. Update the `intents/global_policy.json` file with your specific file paths, protected files, and restricted shell commands.
 3. Update `routing/model_router.py` with your specific local Ollama IP address and your preferred cloud models.

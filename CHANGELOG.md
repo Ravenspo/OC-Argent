@@ -1,5 +1,11 @@
 # Changelog - OC-Argent
 
+## [v1.2.0] - 2026-03-23
+### Added
+- **Automated Deployment:** Released `install_oc_argent.sh` (Version 1) for automated, non-destructive sandbox creation and memory migration for existing OpenClaw environments.
+- **Clean Uninstallation:** Released `uninstall_oc_argent.sh` to safely purge the architecture and restore default routing.
+
+
 ## [v1.1.0] - 2026-03-22
 ### Added
 - **Dynamic Model Router:** Added a `$4.75` alerting threshold that actively fires a Discord warning before the hard daily budget limit is reached.
