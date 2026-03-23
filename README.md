@@ -12,7 +12,7 @@ This repository provides a framework for power users who want the advanced archi
 
 ## Deployment & Setup
 
-### Automated Installation (Version 1)
+### Automated Installation (Version 1.3)
 We have provided an automated bash script for existing OpenClaw users (v2026.3.8+). This script safely builds the directory structure, downloads the core assets, and non-destructively migrates your existing `MEMORY.md` into the new Hierarchical Adaptive Memory (HAM) tiers.
 
 ```bash
